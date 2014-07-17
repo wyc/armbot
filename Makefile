@@ -23,14 +23,14 @@ $(TARGET): $(OBJECTS)
 $(OBJECTS): %.o : %.s $(HEADERS)
 	$(AS) $(ASFLAGS) -c $< -o $@
 
-.PHONEY: clean
+.PHONY: clean
 clean:
 	$(RM) $(OBJECTS) $(TARGET)
 
-.PHONEY: run
+.PHONY: run
 run: $(TARGET)
 	$(EMU) $(EMUFLAGS) $(TARGET)
 
-.PHONEY: debug
+.PHONY: debug
 debug: $(TARGET)
 	$(EMU) $(EMUFLAGS) $(EMUDB) $(TARGET)
